@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const CHECKOUT_URL = "#";
+const CHECKOUT_URL = "https://checkout.kitpro.store/VCCL1O8SD9MN";
 const DECLINE_URL = "https://checkout.kitpro.store/VCCL1O8SD9MO";
 
 const benefits = [
