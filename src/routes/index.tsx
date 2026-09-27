@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
 });
 
 const CHECKOUT_URL = "#";
-const DECLINE_URL = "#";
+const DECLINE_URL = "https://checkout.kitpro.store/VCCL1O8SD9MO";
 
 const benefits = [
   "Funcionamento do câmbio automático",
