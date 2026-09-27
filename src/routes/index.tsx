@@ -73,7 +73,7 @@ function Index() {
 
           <div className="order-1 flex justify-center lg:order-2">
             <img
-              src="/especialista.png"
+              src="/ESPECIALISTA.png"
               alt="Curso Especialista em Câmbio Automático"
               className="w-full max-w-[460px] rounded-2xl object-contain drop-shadow-[0_20px_55px_rgba(249,115,22,0.18)]"
             />
