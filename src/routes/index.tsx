@@ -109,11 +109,29 @@ function Index() {
             seguro da oferta.
           </p>
 
+          <div className="mt-6 rounded-xl border border-orange-500/25 bg-orange-500/[0.06] p-4">
+            <p className="text-xs font-extrabold uppercase tracking-wider text-orange-400">
+              Ainda não decidiu?
+            </p>
+            <p className="mt-1 text-sm font-semibold text-white/85">
+              Você pode garantir a mesma especialização agora por apenas <span className="text-orange-400">R$ 24,90</span>.
+            </p>
+
+            <a
+              href={DECLINE_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 flex w-full items-center justify-center rounded-lg border border-orange-400/30 bg-orange-500/15 px-4 py-3 text-sm font-black uppercase tracking-wide text-orange-300 transition hover:bg-orange-500/25"
+            >
+              Quero aproveitar por R$ 24,90 →
+            </a>
+          </div>
+
           <a
-            href={DECLINE_URL}
+            href="https://plataformamec.lovable.app"
             className="mt-5 inline-block text-xs text-white/40 underline decoration-white/20 underline-offset-4 transition hover:text-white/65"
           >
-            Não, obrigado. Quero continuar sem esta especialização.
+            Caso não deseje esta oferta, clique aqui para acessar seu conteúdo.
           </a>
         </div>
 
