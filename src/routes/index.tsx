@@ -1,147 +1,93 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CheckCircle2, ArrowRight, BookOpen, PlayCircle, ShieldCheck } from "lucide-react";
+
+const PLATFORM_URL = "https://plataformamec.lovable.app/";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Especialista em Câmbio Automático" },
-      {
-        name: "description",
-        content:
-          "Oferta exclusiva para alunos: curso Especialista em Câmbio Automático.",
-      },
+      { title: "Compra realizada! | Formação Mecânico Automotivo" },
+      { name: "description", content: "Obrigado pela compra! Acesse sua plataforma de aulas de mecânica automotiva." },
+      { property: "og:title", content: "Bem-vindo à Formação Mecânico Automotivo" },
+      { property: "og:description", content: "Seu próximo passo é acessar a plataforma e começar seus estudos." },
     ],
   }),
   component: Index,
 });
 
-const CHECKOUT_URL = "https://checkout.kitpro.store/VCCL1O8SD9MN";
-const DECLINE_URL = "https://checkout.kitpro.store/VCCL1O8SD9MO";
-
-const benefits = [
-  "Funcionamento do câmbio automático",
-  "Principais componentes internos",
-  "Identificação de falhas e sintomas",
-  "Diagnóstico de problemas",
-  "Troca e cuidados com o fluido",
-  "Manutenção preventiva",
-  "Erros que podem causar prejuízos",
-  "Procedimentos básicos de reparação",
-];
-
 function Index() {
   return (
     <main className="min-h-screen bg-[#090d12] text-white">
-      <section className="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-4 py-6 sm:px-6 sm:py-10">
-        <div className="mb-5 w-full rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-center">
-          <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-red-400 sm:text-sm">
-            Atenção: oferta exclusiva para alunos
-          </p>
-          <p className="mt-1 text-sm font-semibold text-white/90">
-            Antes de acessar seu treinamento, veja esta condição especial.
-          </p>
+      <section className="relative isolate mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center overflow-hidden px-4 pb-12 pt-10 sm:px-6 sm:pt-16">
+        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[420px] w-[650px] max-w-full -translate-x-1/2 rounded-full bg-emerald-500/[0.08] blur-[100px]" />
+
+        <div className="flex size-16 items-center justify-center rounded-full border border-emerald-400/25 bg-emerald-500/10 shadow-[0_0_50px_rgba(16,185,129,0.12)] sm:size-20">
+          <CheckCircle2 className="size-9 text-emerald-400 sm:size-11" strokeWidth={1.8} />
+        </div>
+        <span className="mt-5 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.16em] text-emerald-300">
+          Bem-vindo ao treinamento!
+        </span>
+        <h1 className="mt-5 max-w-3xl text-center text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+          Obrigado pela sua <span className="text-emerald-400">compra!</span>
+        </h1>
+        <p className="mt-4 max-w-2xl text-center text-base leading-relaxed text-slate-300 sm:text-lg">
+          Você deu o primeiro passo para desenvolver seus conhecimentos em mecânica automotiva.
+          Sua jornada começa agora: acesse a plataforma e explore suas aulas e materiais.
+        </p>
+
+        <div className="mt-8 w-full max-w-4xl overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-2 shadow-[0_24px_75px_rgba(0,0,0,0.35)] sm:rounded-3xl sm:p-3">
+          <img
+            src="/mk2.png"
+            alt="Prévia da plataforma de Mecânica Automotiva exibida em computador e celular"
+            className="block aspect-[4/3] w-full rounded-xl object-contain sm:rounded-2xl"
+            loading="eager"
+            onError={(event) => {
+              const image = event.currentTarget;
+              if (image.src.endsWith("/mk2.png")) image.src = "/mk2.PNG";
+              else if (image.src.endsWith("/mk2.PNG")) image.src = "/mk2.jpg";
+              else if (image.src.endsWith("/mk2.jpg")) image.src = "/mk2.jpeg";
+              else image.style.display = "none";
+            }}
+          />
         </div>
 
-        <div className="grid w-full items-center gap-7 lg:grid-cols-2 lg:gap-12">
-          <div className="order-2 lg:order-1">
-            <span className="inline-flex rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-orange-400">
-              Especialização complementar
-            </span>
-
-            <h1 className="mt-4 text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
-              Torne-se um especialista em{" "}
-              <span className="text-orange-500">Câmbio Automático</span>
-            </h1>
-
-            <p className="mt-4 text-base leading-relaxed text-white/70 sm:text-lg">
-              Você já deu o primeiro passo na mecânica automotiva. Agora avance
-              para uma área técnica com um treinamento direto ao ponto sobre
-              diagnóstico, manutenção e reparos.
-            </p>
-
-            <div className="mt-6 grid gap-2 sm:grid-cols-2">
-              {benefits.map((benefit) => (
-                <div
-                  key={benefit}
-                  className="flex items-start gap-2 rounded-lg border border-white/8 bg-white/[0.03] px-3 py-2.5"
-                >
-                  <span className="mt-0.5 text-sm font-black text-green-400">✓</span>
-                  <span className="text-sm text-white/80">{benefit}</span>
-                </div>
-              ))}
-            </div>
+        <div className="mt-8 w-full max-w-2xl rounded-2xl border border-emerald-400/20 bg-gradient-to-b from-white/[0.08] to-white/[0.025] p-5 text-center shadow-2xl sm:p-8">
+          <div className="mx-auto flex size-11 items-center justify-center rounded-xl bg-amber-400/10 text-amber-400">
+            <PlayCircle className="size-6" />
           </div>
-
-          <div className="order-1 flex justify-center lg:order-2">
-            <img
-              src="/ESPECIALISTA.png"
-              alt="Curso Especialista em Câmbio Automático"
-              className="w-full max-w-[460px] rounded-2xl object-contain drop-shadow-[0_20px_55px_rgba(249,115,22,0.18)]"
-            />
-          </div>
-        </div>
-
-        <div className="mt-8 w-full max-w-2xl rounded-2xl border border-orange-500/25 bg-gradient-to-b from-white/[0.07] to-white/[0.03] p-5 text-center shadow-2xl sm:p-7">
-          <p className="text-sm font-bold uppercase tracking-wider text-orange-400">
-            Condição especial para alunos
+          <h2 className="mt-4 text-xl font-extrabold sm:text-2xl">Sua plataforma está a um clique</h2>
+          <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">
+            Clique no botão abaixo para acessar suas videoaulas e começar a estudar no seu ritmo.
           </p>
-
-          <p className="mt-3 text-sm text-white/60">De <span className="line-through">R$ 97,90</span> por apenas</p>
-
-          <div className="mt-1 flex items-end justify-center gap-2">
-            <span className="text-5xl font-black tracking-tight text-white sm:text-6xl">
-              R$ 37,90
-            </span>
-          </div>
-
-          <p className="mt-2 text-sm font-semibold text-green-400">
-            Pagamento único • acesso vitalício
-          </p>
-
           <a
-            href={CHECKOUT_URL}
-            className="mt-6 flex w-full items-center justify-center rounded-xl bg-green-500 px-5 py-4 text-center text-base font-black uppercase tracking-wide text-white shadow-[0_12px_35px_rgba(34,197,94,0.28)] transition hover:bg-green-400 sm:text-lg"
+            href={PLATFORM_URL}
+            className="mt-6 flex min-h-16 w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-4 text-center text-base font-black uppercase tracking-wide text-[#062a1c] shadow-[0_12px_35px_rgba(16,185,129,0.25)] transition hover:bg-emerald-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400 sm:text-lg"
           >
-            Sim! Quero adicionar Câmbio Automático →
+            Acessar minhas aulas <ArrowRight className="size-5 shrink-0" />
           </a>
+          <p className="mt-3 text-xs text-slate-400">Você será direcionado à plataforma de estudos.</p>
+        </div>
 
-          <p className="mt-3 text-xs leading-relaxed text-white/45">
-            Ao clicar no botão acima, você será direcionado para o checkout
-            seguro da oferta.
-          </p>
-
-          <div className="mt-6 rounded-xl border border-orange-500/25 bg-orange-500/[0.06] p-4">
-            <p className="text-xs font-extrabold uppercase tracking-wider text-orange-400">
-              Ainda não decidiu?
-            </p>
-            <p className="mt-1 text-sm font-semibold text-white/85">
-              Você pode garantir a mesma especialização agora por apenas <span className="text-orange-400">R$ 24,90</span>.
-            </p>
-
-            <a
-              href={DECLINE_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-3 flex w-full items-center justify-center rounded-lg border border-orange-400/30 bg-orange-500/15 px-4 py-3 text-sm font-black uppercase tracking-wide text-orange-300 transition hover:bg-orange-500/25"
-            >
-              Quero aproveitar por R$ 24,90 →
-            </a>
+        <div className="mt-8 grid w-full max-w-3xl gap-3 sm:grid-cols-3">
+          <div className="rounded-xl border border-white/10 bg-white/[0.035] p-4 text-center">
+            <BookOpen className="mx-auto mb-2 size-6 text-amber-400" />
+            <h3 className="text-sm font-bold">Aulas organizadas</h3>
+            <p className="mt-1 text-xs leading-relaxed text-slate-400">Aprenda com conteúdos separados por módulos.</p>
           </div>
-
-          <a
-            href="https://plataformamec.lovable.app"
-            className="mt-5 inline-block text-xs text-white/40 underline decoration-white/20 underline-offset-4 transition hover:text-white/65"
-          >
-            Caso não deseje esta oferta, clique aqui para acessar seu conteúdo.
-          </a>
+          <div className="rounded-xl border border-white/10 bg-white/[0.035] p-4 text-center">
+            <PlayCircle className="mx-auto mb-2 size-6 text-amber-400" />
+            <h3 className="text-sm font-bold">No seu ritmo</h3>
+            <p className="mt-1 text-xs leading-relaxed text-slate-400">Estude pelo celular ou computador.</p>
+          </div>
+          <div className="rounded-xl border border-white/10 bg-white/[0.035] p-4 text-center">
+            <ShieldCheck className="mx-auto mb-2 size-6 text-amber-400" />
+            <h3 className="text-sm font-bold">Área de estudos</h3>
+            <p className="mt-1 text-xs leading-relaxed text-slate-400">Tenha suas aulas e materiais em um só lugar.</p>
+          </div>
         </div>
-
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-semibold uppercase tracking-wider text-white/35">
-          <span>Curso online</span>
-          <span>•</span>
-          <span>Acesso vitalício</span>
-          <span>•</span>
-          <span>Pagamento único</span>
-        </div>
+        <p className="mt-10 text-center text-xs text-slate-500">
+          Formação Mecânico Automotivo • Bons estudos!
+        </p>
       </section>
     </main>
   );
